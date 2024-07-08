@@ -26,6 +26,9 @@
                                 <rect key="frame" x="151" y="409" width="75" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ccw-7h-T7X"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBv-Q8-fqJ">
                                 <rect key="frame" x="140" y="224" width="97" height="34"/>
@@ -48,6 +51,11 @@
                             <constraint firstItem="x1Y-Kb-V6M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="135" id="yiz-wE-lfP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="QBv-Q8-fqJ" id="swu-ib-veM"/>
+                        <outlet property="saveButton" destination="x1Y-Kb-V6M" id="ZBM-e2-tUQ"/>
+                        <outlet property="wel_text" destination="ZDG-GG-13j" id="2oa-Me-piF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
