@@ -13,6 +13,7 @@
 		C3267EFA2C3C4CD00078AFD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3267EF82C3C4CD00078AFD0 /* Main.storyboard */; };
 		C3267EFC2C3C4CD00078AFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3267EFB2C3C4CD00078AFD0 /* Assets.xcassets */; };
 		C3267EFF2C3C4CD00078AFD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3267EFD2C3C4CD00078AFD0 /* LaunchScreen.storyboard */; };
+		C3FBEDC02C3F2145009591C7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBEDBF2C3F2145009591C7 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C3267EFB2C3C4CD00078AFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3267EFE2C3C4CD00078AFD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3267F002C3C4CD00078AFD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3FBEDBF2C3F2145009591C7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		C3267EF12C3C4CD00078AFD0 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				C3FBEDBE2C3F2109009591C7 /* Controllers */,
 				C3267EF22C3C4CD00078AFD0 /* AppDelegate.swift */,
 				C3267EF42C3C4CD00078AFD0 /* SceneDelegate.swift */,
 				C3267EF62C3C4CD00078AFD0 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				C3267F002C3C4CD00078AFD0 /* Info.plist */,
 			);
 			path = CardGame;
+			sourceTree = "<group>";
+		};
+		C3FBEDBE2C3F2109009591C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3FBEDBF2C3F2145009591C7 /* SecondViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3FBEDC02C3F2145009591C7 /* SecondViewController.swift in Sources */,
 				C3267EF72C3C4CD00078AFD0 /* ViewController.swift in Sources */,
 				C3267EF32C3C4CD00078AFD0 /* AppDelegate.swift in Sources */,
 				C3267EF52C3C4CD00078AFD0 /* SceneDelegate.swift in Sources */,
