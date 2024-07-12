@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let nameKey = "savedName"
     var locationManager: CLLocationManager!
     var isLocationAvailable: Bool = false
+    var sendLoc = "0.0"
     var lat: CLLocationDegrees?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +49,12 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
         if let newName = nameTextField.text, !newName.isEmpty {
             if let lat = self.lat {
+                sendLoc = "\(lat)"
                 // Both name and location are available, proceed to the next activity
                 UserDefaults.standard.set(newName, forKey: nameKey)
                 nameTextField.isHidden = true
                 wel_text.text = "Hello, \(newName)!"
-                let secondVC = SecondViewController()
-                secondVC.location = String(lat)
-                self.present(secondVC, animated: true, completion: nil)
-                // Navigate to next activity or perform segue here
+                self.performSegue(withIdentifier: "goToResult", sender: self)
             } else {
                 // Location is not available yet
                 print("Location is not available yet. Please wait.")
@@ -67,6 +66,12 @@ class ViewController: UIViewController {
         
         nameTextField.resignFirstResponder()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destVC = segue.destination as! GameController
+            destVC.locValue = sendLoc
+        }
+     }
 }
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -76,6 +81,7 @@ extension ViewController: CLLocationManagerDelegate {
                 self.lat = location.coordinate.latitude
                 let lon = location.coordinate.longitude
                 print("got location: \(self.lat!) \(lon)")
+                sendLoc = "\(lat ?? 0.0)" // Convert to String
             }
         }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

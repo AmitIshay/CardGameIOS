@@ -55,26 +55,43 @@
                         <outlet property="nameTextField" destination="QBv-Q8-fqJ" id="swu-ib-veM"/>
                         <outlet property="saveButton" destination="x1Y-Kb-V6M" id="ZBM-e2-tUQ"/>
                         <outlet property="wel_text" destination="ZDG-GG-13j" id="2oa-Me-piF"/>
+                        <segue destination="5sj-Hg-z5K" kind="presentation" identifier="goToResult" id="xJ3-2b-6SK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-418" y="-504"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1Og-Ob-X4Y">
+        <!--Game Controller-->
+        <scene sceneID="BXl-Il-fH8">
             <objects>
-                <viewController id="YfD-fm-0G2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8i2-Xb-NGA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                <viewController id="5sj-Hg-z5K" customClass="GameController" customModule="CardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rPr-rm-P26">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jB9-12-MIb"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-UA-50J">
+                                <rect key="frame" x="110" y="154" width="177" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wm0-vA-yNL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TSq-UA-50J" firstAttribute="top" secondItem="Wm0-vA-yNL" secondAttribute="top" constant="154" id="0gy-0V-gre"/>
+                            <constraint firstItem="TSq-UA-50J" firstAttribute="leading" secondItem="Wm0-vA-yNL" secondAttribute="leading" constant="170" id="awm-Rb-Txx"/>
+                            <constraint firstItem="Wm0-vA-yNL" firstAttribute="trailing" secondItem="TSq-UA-50J" secondAttribute="trailing" constant="181" id="ijH-p1-fLf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lbl_locc" destination="TSq-UA-50J" id="m9p-Op-se6"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dwe-DD-U6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPN-bW-3Lk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="-504"/>
+            <point key="canvasLocation" x="264.8854961832061" y="-495.07042253521126"/>
         </scene>
     </scenes>
     <resources>
