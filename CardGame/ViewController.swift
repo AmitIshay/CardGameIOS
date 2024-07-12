@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var locationManager: CLLocationManager!
     var isLocationAvailable: Bool = false
     var sendLoc = "0.0"
+    var savedName: String? // Declare savedName as a class-level variable
     var lat: CLLocationDegrees?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
 
     func loadSavedName() {
         if let savedName = UserDefaults.standard.string(forKey: nameKey) {
+            self.savedName = savedName // Assign savedName to the class-level variable
             if !savedName.isEmpty {
                 nameTextField.isHidden = true
                 wel_text.text = "Hello, \(savedName)!"
@@ -70,6 +72,7 @@ class ViewController: UIViewController {
         if segue.identifier == "goToResult" {
             let destVC = segue.destination as! GameController
             destVC.locValue = sendLoc
+            destVC.nameValue = savedName
         }
      }
 }
