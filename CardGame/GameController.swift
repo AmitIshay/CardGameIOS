@@ -8,7 +8,8 @@ class GameController: UIViewController {
     var locValue: String?
     var nameValue: String?
     var countdownTimer: Timer?
-
+    var leftScore = 0
+    var rightScore = 0
     @IBOutlet weak var right_img: UIImageView!
     @IBOutlet weak var left_img: UIImageView!
     var totalTime = 5 // Total time for the countdown
@@ -21,8 +22,7 @@ class GameController: UIViewController {
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
-        left_img.image = cards[0]
-        right_img.image = cards[0]
+        updateImages()
         if let locString = locValue, let locDouble = Double(locString) {
             if locDouble < location {
                 lbl_locc.text = locValue
@@ -43,6 +43,25 @@ class GameController: UIViewController {
     }
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        updateImages()
+
+    }
+    @objc func updateImages() {
+        let randomIndex = Int.random(in: 0..<cards.count)
+        left_img.image = cards[randomIndex]
+        var rightIndex = Int.random(in: 0..<cards.count)
+        right_img.image = cards[rightIndex]
+        
+               // Compare indices and update labels
+               if randomIndex > rightIndex {
+                   leftScore += 1
+                   left_lbl.text = "\(leftScore) point"
+                   right_lbl.text = "\(rightScore) point"
+               } else if rightIndex > randomIndex {
+                   rightScore += 1
+                   left_lbl.text = "\(leftScore) point"
+                   right_lbl.text = "\(rightScore) point"
+               }
     }
     
     @objc func updateTimer() {
