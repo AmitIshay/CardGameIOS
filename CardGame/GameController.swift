@@ -3,6 +3,8 @@ import UIKit
 class GameController: UIViewController {
     @IBOutlet weak var lbl_locc: UILabel!
     var location = 34.817549168324334
+    @IBOutlet weak var right_name_lbl: UILabel!
+    @IBOutlet weak var left_name_lbl: UILabel!
     @IBOutlet weak var timer_lbl: UILabel!
     @IBOutlet weak var left_lbl: UILabel!
     var locValue: String?
@@ -30,19 +32,17 @@ class GameController: UIViewController {
         "12_of_clubs", "12_of_diamonds", "12_of_hearts", "12_of_spades",
         "13_of_clubs", "13_of_diamonds", "13_of_hearts", "13_of_spades",
     ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateImages()
         if let locString = locValue, let locDouble = Double(locString) {
             if locDouble < location {
                 lbl_locc.text = locValue
-                right_lbl.text = nameValue
-                left_lbl.text = "PC"
+                right_name_lbl.text = nameValue
+                left_name_lbl.text = "PC"
             } else {
                 lbl_locc.text = locValue
-                left_lbl.text = nameValue
-                right_lbl.text = "PC"
+                left_name_lbl.text = nameValue
+                right_name_lbl.text = "PC"
             }
         } else {
             // Handle the case where locValue could not be converted to a Double
@@ -54,9 +54,27 @@ class GameController: UIViewController {
     }
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        updateImages()
+        if leftScore != 10 && rightScore != 10 {
+            updateImages()
+        } else {
+            self.performSegue(withIdentifier: "goToGameover", sender: self)
+        }
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToGameover" {
+            let destVC = segue.destination as! gameOverController
+            if leftScore == 10 {
+                destVC.winName =  left_name_lbl.text
+                destVC.winScore = leftScore
+            } else {
+                destVC.winName = right_name_lbl.text
+                destVC.winScore = rightScore
+            }
+
+        }
+     }
+    
     @objc func updateImages() {
         let leftCard = drawCard()
         let rightCard = drawCard()
