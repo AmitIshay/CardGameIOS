@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var wel_text: UILabel!
     @IBOutlet weak var saveButton: UIButton!
-    let nameKey = "savedName"
+    let nameKey = "edNamehj"
     var locationManager: CLLocationManager!
     var isLocationAvailable: Bool = false
     var sendLoc = "0.0"
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
 
     func loadSavedName() {
+        nameTextField.text = savedName
         if let savedName = UserDefaults.standard.string(forKey: nameKey) {
             self.savedName = savedName // Assign savedName to the class-level variable
             if !savedName.isEmpty {
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
         if segue.identifier == "goToResult" {
             let destVC = segue.destination as! GameController
             destVC.locValue = sendLoc
-            destVC.nameValue = savedName
+            destVC.nameValue = nameTextField.text
         }
      }
 }
